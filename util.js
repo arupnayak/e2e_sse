@@ -10,20 +10,20 @@ const readChunk = (reader, response) => {
             if (done) {
                 // Log a message
                 console.log('Stream finished');
+                response.end();
                 // Return from the function
                 return;
             }
             // Convert the chunk value to a string
             const chunkString = new TextDecoder().decode(value);
             // Log the chunk string
-            // console.log(chunkString);
+            console.log(chunkString);
             // Read the next chunk
             try {
                 response.write(chunkString);
             } catch(e) {
-                console.log(chunkString);
+                console.error(e);
             }
-                
             
             readChunk(reader, response);
         })

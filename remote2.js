@@ -26,7 +26,8 @@ function eventsHandler(request, response, next) {
         response.write(message);
       }, 5000);
   
-    
+      setTimeout(function( ) { clearInterval( interval ); }, 30000);
+
   
     // const clientId = Date.now();
   
